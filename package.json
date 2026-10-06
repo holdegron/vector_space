@@ -5,7 +5,6 @@
   "private": true,
   "type": "module",
   "license": "MIT",
-  "author": "Piotr Matuszewski",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mat373/vector_space.git"

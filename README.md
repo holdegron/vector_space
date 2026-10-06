@@ -174,4 +174,4 @@ Vector Space is an independent project. It is not affiliated with or endorsed by
 
 ## License
 
-[MIT](LICENSE) © Piotr Matuszewski
+[MIT](LICENSE)
