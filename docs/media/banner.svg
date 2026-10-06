@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-labelledby="title desc">
+  <title id="title">Vector Space</title>
+  <desc id="desc">Real spaceflights replayed in 3D from NASA/JPL state vectors</desc>
+  <defs>
+    <radialGradient id="sky" cx="30%" cy="35%" r="95%">
+      <stop offset="0" stop-color="#14284f"/>
+      <stop offset="0.45" stop-color="#070d22"/>
+      <stop offset="1" stop-color="#02040b"/>
+    </radialGradient>
+    <radialGradient id="nebula" cx="78%" cy="70%" r="45%">
+      <stop offset="0" stop-color="#7c3aed" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="earth" cx="38%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#9be9ff"/>
+      <stop offset="0.45" stop-color="#2b7bbf"/>
+      <stop offset="1" stop-color="#0b1f45"/>
+    </radialGradient>
+    <radialGradient id="moon" cx="35%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#f1f3f6"/>
+      <stop offset="1" stop-color="#5c6472"/>
+    </radialGradient>
+    <radialGradient id="glow" r="50%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.3" stop-color="#a5f3fc" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="path" x1="0" x2="1">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="0.55" stop-color="#7dd3fc"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="word" x1="0" x2="1">
+      <stop offset="0" stop-color="#e0f2fe"/>
+      <stop offset="0.5" stop-color="#7dd3fc"/>
+      <stop offset="1" stop-color="#5eead4"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <style>
+      .star { fill: #dbeafe; animation: twinkle 4s ease-in-out infinite; }
+      .s2 { animation-delay: 1.3s; } .s3 { animation-delay: 2.6s; }
+      @keyframes twinkle { 50% { opacity: 0.25; } }
+      .flight { stroke-dasharray: 10 14; animation: flow 6s linear infinite; }
+      @keyframes flow { to { stroke-dashoffset: -240; } }
+      .craft { animation: pulse 2.4s ease-in-out infinite; transform-origin: 970px 132px; }
+      @keyframes pulse { 50% { transform: scale(1.35); opacity: 0.75; } }
+      @media (prefers-reduced-motion: reduce) { .star, .flight, .craft { animation: none; } }
+    </style>
+  </defs>
+
+  <rect width="1280" height="360" fill="url(#sky)"/>
+  <rect width="1280" height="360" fill="url(#nebula)"/>
+
+  <g>
+    <circle class="star" cx="60" cy="40" r="1.3"/><circle class="star s2" cx="140" cy="300" r="1"/>
+    <circle class="star s3" cx="230" cy="70" r="1.6"/><circle class="star" cx="320" cy="330" r="1.1"/>
+    <circle class="star s2" cx="410" cy="28" r="1"/><circle class="star s3" cx="520" cy="310" r="1.4"/>
+    <circle class="star" cx="610" cy="22" r="1.1"/><circle class="star s2" cx="700" cy="338" r="1.2"/>
+    <circle class="star s3" cx="780" cy="48" r="1.5"/><circle class="star" cx="860" cy="300" r="1"/>
+    <circle class="star s2" cx="930" cy="30" r="1.2"/><circle class="star s3" cx="1060" cy="320" r="1.4"/>
+    <circle class="star" cx="1130" cy="40" r="1.1"/><circle class="star s2" cx="1210" cy="250" r="1.3"/>
+    <circle class="star s3" cx="1250" cy="90" r="1"/><circle class="star" cx="1180" cy="170" r="0.9"/>
+    <circle class="star s2" cx="40" cy="190" r="0.9"/><circle class="star s3" cx="470" cy="190" r="0.8"/>
+  </g>
+
+  <!-- free-return figure-eight: Earth right, Moon left -->
+  <path d="M 1112 172 C 1030 118, 900 116, 868 168 C 840 186, 812 236, 846 256 C 884 278, 916 236, 892 204 C 872 178, 930 236, 990 254 C 1040 268, 1090 258, 1114 238"
+        fill="none" stroke="url(#path)" stroke-opacity="0.22" stroke-width="10" filter="url(#soft)"/>
+  <path d="M 1112 172 C 1030 118, 900 116, 868 168 C 840 186, 812 236, 846 256 C 884 278, 916 236, 892 204 C 872 178, 930 236, 990 254 C 1040 268, 1090 258, 1114 238"
+        class="flight" fill="none" stroke="url(#path)" stroke-width="2.4" stroke-linecap="round"/>
+
+  <circle cx="1150" cy="205" r="54" fill="#38bdf8" opacity="0.18" filter="url(#soft)"/>
+  <circle cx="1150" cy="205" r="44" fill="url(#earth)"/>
+  <ellipse cx="1150" cy="205" rx="44" ry="13" fill="none" stroke="#7dd3fc" stroke-opacity="0.35"/>
+  <path d="M 1106 205 A 44 44 0 0 1 1194 205" fill="none" stroke="#7dd3fc" stroke-opacity="0.25"/>
+  <circle cx="858" cy="222" r="17" fill="url(#moon)"/>
+
+  <circle class="craft" cx="970" cy="132" r="12" fill="url(#glow)"/>
+  <circle cx="970" cy="132" r="3" fill="#fef3c7"/>
+
+  <text x="72" y="168" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="64" font-weight="700" letter-spacing="10" fill="url(#word)">VECTOR SPACE</text>
+  <text x="76" y="212" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" letter-spacing="2" fill="#93a4c3">REAL SPACEFLIGHTS · REPLAYED IN 3D · FROM NASA/JPL STATE VECTORS</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5">
+    <rect x="76" y="238" width="226" height="28" rx="7" fill="#06201f" stroke="#5eead4" stroke-opacity="0.5"/>
+    <text x="90" y="257" fill="#5eead4">FLIGHT 01 · ARTEMIS II</text>
+    <rect x="314" y="238" width="194" height="28" rx="7" fill="#221804" stroke="#fbbf24" stroke-opacity="0.5"/>
+    <text x="328" y="257" fill="#fbbf24">CLOSEST · 8,282 KM</text>
+    <rect x="520" y="238" width="222" height="28" rx="7" fill="#081b2b" stroke="#7dd3fc" stroke-opacity="0.5"/>
+    <text x="534" y="257" fill="#7dd3fc">FARTHEST · 413,145 KM</text>
+  </g>
+</svg>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vector Space · Artemis II</title>
+  <meta name="description" content="Replay the Artemis II flight in 3D from NASA/JPL state vectors." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <span class="topbar__brand">VECTOR<b>SPACE</b></span>
+    <span class="topbar__mission" id="missionTitle">—</span>
+    <span class="topbar__badge" title="Trajectory from NASA/JSC navigation files served by JPL Horizons">DATA · JPL HORIZONS</span>
+  </header>
+
+  <main class="layout">
+    <section class="column column--left" aria-label="Telemetry">
+      <div class="panel">
+        <div class="label">Mission clock</div>
+        <div class="clock" id="met">T+0/00:00:00</div>
+        <div class="utc" id="utc">—</div>
+        <dl class="readout">
+          <dt>From Earth</dt><dd id="earthDistance">—</dd>
+          <dt>Altitude</dt><dd id="altitude">—</dd>
+          <dt>From Moon</dt><dd class="accent-cyan" id="moonDistance">—</dd>
+          <dt>Phase</dt><dd id="phase">—</dd>
+        </dl>
+      </div>
+
+      <div class="panel">
+        <div class="row"><span class="label">Latest milestone</span><span class="label accent-cyan" id="milestoneCode">—</span></div>
+        <div class="milestone__title" id="milestoneTitle">—</div>
+        <p class="milestone__desc" id="milestoneDesc">—</p>
+        <div class="milestone__next"><span class="label">Next</span><span id="milestoneNext">—</span></div>
+      </div>
+
+      <div class="panel panel--chart">
+        <div class="row"><span class="label" id="speedLabel">Speed</span><span class="chart__value" id="speed">—</span></div>
+        <canvas class="chart" id="speedChart" aria-label="Speed over the mission"></canvas>
+      </div>
+      <div class="panel panel--chart">
+        <div class="row"><span class="label">Distance from Earth</span><span class="chart__value" id="earthChartValue">—</span></div>
+        <canvas class="chart" id="earthChart" aria-label="Distance from Earth over the mission"></canvas>
+      </div>
+      <div class="panel panel--chart">
+        <div class="row"><span class="label">Distance from Moon</span><span class="chart__value" id="moonChartValue">—</span></div>
+        <canvas class="chart" id="moonChart" aria-label="Distance from the Moon over the mission"></canvas>
+      </div>
+    </section>
+
+    <section class="center">
+      <div class="stage" id="stage">
+        <div class="stage__hud">
+          <div class="views" role="group" aria-label="Camera">
+            <button type="button" data-view="overview">Overview</button>
+            <button type="button" data-view="earth">Earth</button>
+            <button type="button" data-view="moon">Moon</button>
+            <button type="button" data-view="spacecraft" id="followButton">Follow</button>
+          </div>
+          <div class="chips">
+            <span class="chip" id="sourceChip">JPL VECTOR</span>
+            <span class="chip chip--alert" id="signalChip" hidden>NO SIGNAL · MOON IN THE WAY</span>
+            <span class="chip chip--muted" id="shadowChip" hidden>IN EARTH'S SHADOW</span>
+          </div>
+        </div>
+        <div class="stage__status" id="stageStatus">Loading 3D view…</div>
+        <div class="stage__hint">Drag to orbit · scroll to zoom · right-drag to pan · click a gold tag to jump there</div>
+      </div>
+
+      <div class="replay">
+        <div class="replay__row">
+          <div>
+            <span class="label">Replay</span>
+            <strong class="replay__clock" id="replayClock">T+0/00:00:00</strong>
+          </div>
+          <div class="replay__controls">
+            <button type="button" class="button--primary" id="playButton">Pause</button>
+            <button type="button" id="restartButton">Restart</button>
+            <div class="segmented" role="group" aria-label="Playback speed">
+              <button type="button" data-speed="1">1x</button>
+              <button type="button" data-speed="5">5x</button>
+              <button type="button" data-speed="20">20x</button>
+            </div>
+            <select id="phaseSelect" aria-label="Jump to phase">
+              <option value="">Jump to phase…</option>
+            </select>
+            <label class="toggle"><input type="checkbox" id="trueScale" /> True scale</label>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="timeline__phases" id="timelinePhases"></div>
+          <div class="timeline__progress" id="timelineProgress"></div>
+          <input type="range" class="timeline__input" id="timeline" min="0" max="1" step="1" value="0" aria-label="Mission elapsed time" />
+          <div class="timeline__ticks" id="timelineTicks"></div>
+          <div class="timeline__tip" id="timelineTip" hidden></div>
+        </div>
+        <div class="layers" role="group" aria-label="Layers">
+          <label><input type="checkbox" data-option="showOutbound" checked /> Outbound leg</label>
+          <label><input type="checkbox" data-option="showReturn" checked /> Return leg</label>
+          <label><input type="checkbox" data-option="showLabels" checked /> Labels</label>
+          <label><input type="checkbox" data-option="showTrail" checked /> Trail</label>
+          <label><input type="checkbox" data-option="showGuides" checked /> Guides</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="column column--right" aria-label="Context">
+      <div class="panel">
+        <div class="row"><span class="label">Track map</span><span class="label">Ecliptic, top-down</span></div>
+        <canvas class="minimap" id="minimap" aria-label="Top-down map of the trajectory"></canvas>
+      </div>
+
+      <div class="panel">
+        <div class="row"><span class="label">Data source</span><span class="label" id="legLabel">Outbound</span></div>
+        <div class="source__title" id="sourceTitle">—</div>
+        <div class="source__detail" id="sourceDetail">—</div>
+        <dl class="readout">
+          <dt>Frame</dt><dd>ICRF / ecliptic J2000</dd>
+          <dt>Interpolation</dt><dd class="accent-cyan">Cubic Hermite</dd>
+          <dt>Closest to Moon</dt><dd class="accent-gold" id="statClosest">—</dd>
+          <dt>Farthest from Earth</dt><dd id="statFarthest">—</dd>
+          <dt>Speed vs Moon</dt><dd id="moonRelativeSpeed">—</dd>
+          <dt>Signal loss</dt><dd id="statSignalLoss">—</dd>
+        </dl>
+      </div>
+
+      <div class="panel panel--log">
+        <div class="row"><span class="label">Flight log</span><span class="label">Horizons event table</span></div>
+        <ol class="log" id="flightLog"></ol>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

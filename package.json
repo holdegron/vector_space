@@ -1,0 +1,22 @@
+{
+  "name": "vector-space",
+  "version": "1.0.0",
+  "description": "Replay real spaceflights in 3D from NASA/JPL state vectors. First flight: Artemis II.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "Piotr Matuszewski",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mat373/vector_space.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "python3 tools/serve.py 8000",
+    "test": "node --test",
+    "data:fetch": "python3 tools/fetch_horizons.py",
+    "data:build": "python3 tools/build_ephemeris.py"
+  }
+}

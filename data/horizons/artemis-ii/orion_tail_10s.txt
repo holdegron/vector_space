@@ -1,0 +1,258 @@
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Apr 20, 2026        Artemis II / Spacecraft (Earth)             -1024
+          19:01 UTC       https://www.nasa.gov/mission/artemis-ii/
+                         https://www.nasa.gov/artemis-ii-press-kit/
+
+ BACKGROUND:
+  Four astronauts will fly aboard NASA's Orion 2 spacecraft to confirm the 
+  spacecraft's systems operate as designed in preparation for a sustained 
+  human presence on the Moon. 
+
+  Artemis II astronauts are NASA's Reid Wiseman (Commander), Victor Glover 
+  (pilot), Christina Koch (Mission Specialist), and CSA (Canadian Space 
+  Agency) astronaut Jeremy Hansen (Mission Specialist).
+
+  "Artemis II" refers to a specific mission within the broader Artemis program.
+  "Orion" refers to the spacecraft/capsule the astronauts ride within. The
+    crew has chosen the nickname "Integrity" for the Artemis II Orion capsule.
+  "SLS" refers to the Space Launch System, or rocket launching Orion into space
+
+ MAJOR EVENTS:
+  Launched April 1 @ 22:35:12 UTC from pad LC-39B at the Kennedy Space 
+  Center, USA.  Mission length is 9 days.
+
+  MET column below gives timings of major dynamical events RELATIVE TO LAUNCH.
+  Format is "days/HH:MM:SS" since launch. Given launch time, MET converted to 
+  absolute UTC date/time is also given, format "date HH:MM:{SS}". As the 
+  mission develops, some times may differ somewhat from planning:
+
+  Day 1        MET     Apr  UTC
+    launch   0/00:00    1 22:35:12 - Launch April 1, 22:35:12 UTC
+    launch + 0/00:20    1 22:55    - Orion deploys solar arrays in Earth orbit
+             0/00:49:50 1 23:25:02 - Perigee raise maneuver (2223 x 185 km)
+             0/01:47:57 2 00:23:09 - Apogee raise maneuver  (70377 km)
+             0/03:24:18 2 01:59:30 - Orion/ICPS separation
+             0/04:50    2 03:25    - Orion upper stage separation burn
+             0/05:00    2 03:35    - ICPS disposal burn for Pacific splashdown 
+             0/05:04    2 03:39    - Cubesats deploy at one minute intervals
+             0/12:55    2 11:30    - Perigee raise burn
+  Day 2
+    launch + 1/01:14    2 23:49    - Start Translunar Injection burn (5m 55s)
+             1/01:19    2 23:54    - End TLI (delta-v= 388 m/s)
+             1/01:35    3 00:10    - Earth shadow entrance 
+             1/02:41    3 01:17    - Earth shadow exit
+  Day 3
+    launch + 2/00:08    3 22:43    - [CANCELLED] Trajectory correction burn #1
+  Day 4
+    launch + 3/01:08    4 23:43    - [CANCELLED] Trajectory correction burn #2
+  Day 5
+    launch + 4/04:28:05 6 03:03:17 - Begin trajectory correction burn #3 (OTC-3)
+             4/04:28:23 6 03:03:35   End OTC-3 (length 18 sec, delta-v 3 m/s)
+             4/07:03:32 6 05:38:44 - Orion enters lunar SOI, 62800 km from Moon
+                                      center (Hill sphere definition)
+  Day 6
+    launch + 5/00:26    6 23:01    - Closest approach to Moon center (8282 km)
+             5/00:30    6 23:05    - Maximum distance Earth center (413146.2 km)
+  Day 7
+    launch + 5/17:47    7 16:23    - Orion exits lunar SOI, 62800 km from Moon
+                                      center (Hill sphere definition)
+             6/01:28    8 00:03    - Return trajectory correction burn #1
+                                      Total delta-v = 0.49 m/s, length 15 sec.
+  Day 8
+    launch + 7/04:20    9 02:55    - [CANCELLED] Manual piloting demonstration
+                                      Oxidizer tank pressure characterization
+  Day 9
+    launch + 8/04:18   10 02:53    - Return trajectory correction burn #2
+                                      Total delta-v = 1.62 m/s, length 9 sec.
+  Day 10
+    launch + 8/20:18   10 18:53    - Return trajectory correction burn #3
+                                      Total delta-v = 1.28 m/s, length 8 sec.
+             9/00:58   10 23:33    - Orion 2 crew and service module separation
+             9/01:01   10 23:36    - Crew module raise burn 
+                                      (length 19 sec., total delta-v= 3.0 m/s)
+             9/01:18   10 23:53    - Entry interface (122 km above Earth)
+                                     Events by altitude:
+                                      11 km : Forward bay cover deploys
+                                      7.6 km: Droque parachute deploys
+                                      2.9 km: Pilot parachutes deploy @ 2.9 km,
+                                              pulling out 3 main parachutes
+             9/01:32   11 00:07    - Splashdown, Pacific Ocean, off Baja Cali.
+                                      2.5 hours before sunset
+             9/01:47   11 00:22    - Orion 2 final power down
+             9/02:17   11 00:52    - Astronaut egress complete
+
+ SPACECRAFT DETAILS
+  SLS                
+   * Height                : 98 meters
+   * Mass at liftoff       : 2.61 million kg
+   * Thrust at liftoff     : 39.1 million Newtons
+   * Payload to the moon   : 27,000 kg
+ 
+  Orion module ("Integrity")
+   * Crew + service mod hgt: 7.92 meters
+   * Pressurized volume    : 19.6 m^3 
+   * Mass to the Moon      : ~27,000 kg
+   * Return mass at landing: ~10,400 kg (6500kg srvc mod, 1000kg adpt. discard)
+   * Propellant usage      : ~ 9,000 kg
+  
+ CUBESATS DISPENSED 
+  All are 12U CubeSats from international partners tied to the Artemis Accords.
+  Independent missions and trajectories once released on Day 1.
+
+   1. ATENEA (Argentina space agency, CONAE)
+       Studies: Radiation environment, shielding techniques, communication
+                systems
+       Goal   : Improve future deep-space mission design
+
+   2. TACHELES (Germany, German Aerospace Center (DLR))
+       Focus  : Testing electronics and components
+       Goal   : Validating tech for future lunar vehicles and infrastructure
+
+   3. K-RadCube (South Korea, Korea AeroSpace Administration (KASA))
+       Mission: Measure space radiation using materials that mimic human tissue
+       Goal   : Study biological effects of radiation in space
+
+   4. Space Weather CubeSat-1 (Saudi Arabia, Saudi Space Agency)
+       Studies: Solar radiation, magnetic fields, space weather conditions 
+                in high Earth orbit
+
+ SPACECRAFT TRAJECTORY:
+  Post-launch Orion II trajectory data from NASA/JSC navigation (concatenated).
+  Trajectory data starts after nominal ICPS separation, 3h24m18s after launch: 
+
+  Trajectory name                              Start (TDB)    Stop (TDB)
+  ----------------------------------------- ----------------- -----------------
+  Orion_OEM_20260401_0335.V0.1              2026-Apr-02 01:59 2026-Apr-02 03:27
+  Orion_OEM_20260402_1414.V0.1              2026-Apr-02 03:27 2026-Apr-02 12:45
+  Orion_OEM_20260403_0318.V0.3              2026-Apr-02 12:45 2026-Apr-03 00:03 
+  EPH_OEM_20260403_1626.V0.1                2026-Apr-03 00:03 2026-Apr-03 17:36
+  NoBurn_Orion_OEM_20260404_2046.V0.1       2026-Apr-03 17:36 2026-Apr-04 11:58
+  traj_em2_260404-260406_260405_od011v1     2026-Apr-04 11:58 2026-Apr-05 02:45
+  Orion_OEM_20260405_1125.V0.1              2026-Apr-05 02:45 2026-Apr-05 04:35
+  Orion_OEM_20260406_1028.V0.1              2026-Apr-05 04:35 2026-Apr-05 23:59
+  JPL_od014v1_260406_07_dco096_0515         2026-Apr-05 23:59 2026-Apr-06 17:35
+  Orion_OEM_20260408_0223.V0.1              2026-Apr-06 17:35 2026-Apr-08 04:38
+  Orion_OEM_20260408_1023.V0.1              2026-Apr-08 04:38 2026-Apr-08 14:31
+  Orion_OEM_20260409_0312.V0.1              2026-Apr-08 14:31 2026-Apr-09 09:24
+  Orion_OEM_20260410_0411.V0.1              2026-Apr-09 09:24 2026-Apr-10 06:24
+  Orion_OEM_20260410_0908.V0.1              2026-Apr-10 06:24 2026-Apr-10 23:51
+*******************************************************************************
+
+
+*******************************************************************************
+Ephemeris / API_USER Wed Sep 23 02:58:03 2026 Pasadena, USA      / Horizons
+*******************************************************************************
+Target body name: Artemis II (spacecraft) (-1024) {source: Artemis_II_merged}
+Center body name: Earth (399)                     {source: DE441}
+Center-site name: BODY CENTER
+*******************************************************************************
+Start time      : A.D. 2026-Apr-10 23:49:30.0000 UT 
+Stop  time      : A.D. 2026-Apr-10 23:51:00.0000 UT 
+Step-size       : 9 steps
+*******************************************************************************
+Center geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}
+Center cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}
+Center radii    : 6378.137, 6378.137, 6356.752 km {Equator_a, b, pole_c}
+Output units    : KM-S
+Calendar mode   : Mixed Julian/Gregorian
+Output type     : GEOMETRIC cartesian states
+Output format   : 2 (position and velocity)
+EOP file        : eop.260922.p261219
+EOP coverage    : DATA-BASED 1962-JAN-20 TO 2026-SEP-22. PREDICTS-> 2026-DEC-18
+Reference frame : Ecliptic of J2000.0
+*******************************************************************************
+            JDUT ,            Calendar Date (UT ),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,
+**************************************************************************************************************************************************************************************************
+$$SOE
+2461141.492708333, A.D. 2026-Apr-10 23:49:30.0000,  5.807993793848027E+03,  3.825769696492664E+03, -8.974983666574822E+02, -7.467270419351759E+00,  6.607037668970176E+00,  3.547961686527592E+00,
+2461141.492824074, A.D. 2026-Apr-10 23:49:40.0000,  5.732984960777612E+03,  3.891616408398939E+03, -8.619673726976085E+02, -7.534493949774555E+00,  6.562079529164733E+00,  3.558189350237492E+00,
+2461141.492939815, A.D. 2026-Apr-10 23:49:50.0000,  5.657304019409743E+03,  3.957006764014136E+03, -8.263355562729444E+02, -7.601686107644697E+00,  6.515764548623118E+00,  3.568124042508845E+00,
+2461141.493055556, A.D. 2026-Apr-10 23:50:00.0000,  5.580951462776919E+03,  4.021927143026405E+03, -7.906059104327534E+02, -7.668811019858275E+00,  6.468082745398312E+00,  3.577753176013818E+00,
+2461141.493171296, A.D. 2026-Apr-10 23:50:10.0000,  5.503928142812857E+03,  4.086363837306764E+03, -7.547815516499232E+02, -7.735832791187478E+00,  6.419026533429030E+00,  3.587064655917677E+00,
+2461141.493287037, A.D. 2026-Apr-10 23:50:20.0000,  5.426235270542629E+03,  4.150303074323690E+03, -7.188657149986730E+02, -7.802715476992937E+00,  6.368590572723375E+00,  3.596046841084196E+00,
+2461141.493402778, A.D. 2026-Apr-10 23:50:30.0000,  5.347874417579601E+03,  4.213731037838765E+03, -6.828617502749455E+02, -7.869422847384687E+00,  6.316771377760452E+00,  3.604688394306803E+00,
+2461141.493518519, A.D. 2026-Apr-10 23:50:40.0000,  5.268847521007364E+03,  4.276633883620105E+03, -6.467731201350348E+02, -7.935917950654364E+00,  6.263566723670746E+00,  3.612978032063595E+00,
+2461141.493634259, A.D. 2026-Apr-10 23:50:50.0000,  5.189156893441355E+03,  4.338997748579255E+03, -6.106034011063264E+02, -8.002162526185234E+00,  6.208974945623906E+00,  3.620904208248132E+00,
+2461141.493750000, A.D. 2026-Apr-10 23:51:00.0000,  5.108805239324503E+03,  4.400808752989064E+03, -5.743562878483858E+02, -8.068116365269542E+00,  6.152994286251956E+00,  3.628454792717091E+00,
+$$EOE
+**************************************************************************************************************************************************************************************************
+ 
+TIME
+
+ Times PRIOR to 1962 are UT1, a mean-solar time closely related to the
+prior but now-deprecated GMT. Times AFTER 1962 are in UTC, the current
+civil or "wall-clock" atomic time-scale. UTC is kept within 0.9 seconds
+of UT1 using integer leap-seconds for 1972 and later years.
+
+  Conversion from the internal Barycentric Dynamical Time (TDB) of solar
+system dynamics to the discontinuous civil UT time-scale has not been
+determined for UTC times after the next July or January 1st. Therefore,
+the last known leap-second is used as a constant over future intervals,
+a condition noted here as "UT~".
+
+  Future but as yet undetermined leap-seconds can be expected to change
+time-tags in the "UT~" interval and, in general, the UT scale may not be
+suitable for purposes that assume time-tag continuity in the ephemeris.
+Output in continuous TDB and TT timescales may instead be requested,
+though these are not linked to Earth's rotation.
+
+  Time-tags refer to the UT time-scale conversion from TDB on Earth
+regardless of observer location within the solar system, although clock
+rates may differ due to the local gravity field and no analog to "UT"
+may be defined for that location.
+ 
+CALENDAR SYSTEM
+
+  Mixed calendar mode was active such that calendar dates after AD 1582-Oct-15
+(if any) are in the modern Gregorian system. Dates prior to 1582-Oct-5 (if any)
+are in the Julian calendar system, which is automatically extended for dates
+prior to its adoption on 45-Jan-1 BC.  The Julian calendar is useful for
+matching historical dates. The Gregorian calendar more accurately corresponds
+to the Earth's orbital motion and seasons. A "Gregorian-only" calendar mode is
+available if such physical events are the primary interest.
+
+REFERENCE FRAME AND COORDINATES
+
+  Ecliptic at the standard reference epoch
+
+    Reference epoch: J2000.0
+    X-Y plane: adopted Earth orbital plane at the reference epoch
+               Note: IAU76 obliquity of 84381.448 arcseconds wrt ICRF X-Y plane
+    X-axis   : ICRF
+    Z-axis   : perpendicular to the X-Y plane in the directional (+ or -) sense
+               of Earth's north pole at the reference epoch.
+
+  Symbol meaning:
+
+    JDUT     Julian Day Number, Universal Time
+      X      X-component of position vector (km)
+      Y      Y-component of position vector (km)
+      Z      Z-component of position vector (km)
+      VX     X-component of velocity vector (km/sec)                           
+      VY     Y-component of velocity vector (km/sec)                           
+      VZ     Z-component of velocity vector (km/sec)                           
+
+ABERRATIONS AND CORRECTIONS
+
+ Geometric state vectors have NO corrections or aberrations applied.
+
+Computations by ...
+
+    Solar System Dynamics Group, Horizons On-Line Ephemeris System
+    4800 Oak Grove Drive, Jet Propulsion Laboratory
+    Pasadena, CA  91109   USA
+
+    General site: https://ssd.jpl.nasa.gov/
+    Mailing list: https://ssd.jpl.nasa.gov/email_list.html
+    System news : https://ssd.jpl.nasa.gov/horizons/news.html
+    User Guide  : https://ssd.jpl.nasa.gov/horizons/manual.html
+    Connect     : browser        https://ssd.jpl.nasa.gov/horizons/app.html#/x
+                  API            https://ssd-api.jpl.nasa.gov/doc/horizons.html
+                  command-line   telnet ssd.jpl.nasa.gov 6775
+                  e-mail/batch   https://ssd.jpl.nasa.gov/ftp/ssd/horizons_batch.txt
+                  scripts        https://ssd.jpl.nasa.gov/ftp/ssd/SCRIPTS
+    Inquiries   : Jon.D.Giorgini@jpl.nasa.gov
+*******************************************************************************
