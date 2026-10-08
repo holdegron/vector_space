@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mat373/vector_space.git"
+    "url": "git+https://github.com/holdegron/vector_space.git"
   },
   "engines": {
     "node": ">=20"
